@@ -1,0 +1,27 @@
+name: ServerCore
+main: iiFouzi\ServerCore\Main
+api: [3.0.0, 4.0.0]
+version: 1.0.0
+author: "iiFouzi"
+
+commands:
+ heal:
+  description: "heal you"
+ feed:
+  description: "feed you"
+ fly:
+  description: "enable your fly ability"
+ ci:
+  description: "clear your inventory"
+ ping:
+  description: "shows ur ping/latency"
+  
+permissions:
+ essentials.heal:
+  default: op
+ essentials.feed:
+  default: op
+ essentials.fly:
+  default: op
+ essentials:.ci:
+  default: op

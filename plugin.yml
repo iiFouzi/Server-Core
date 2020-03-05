@@ -17,11 +17,11 @@ commands:
   description: "shows ur ping/latency"
   
 permissions:
- essentials.heal:
+ servercore.heal:
   default: op
- essentials.feed:
+ servercore.feed:
   default: op
- essentials.fly:
+ servercore.fly:
   default: op
- essentials:.ci:
+ servercore.ci:
   default: op

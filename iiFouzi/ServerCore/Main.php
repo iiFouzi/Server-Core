@@ -34,17 +34,17 @@ class Main extends PluginBase implements Listener {
     return self::PREFIX;
   }
   
-  public function onJoin(PlayerJoinEvent $event): void{
+  public function onJoin(PlayerJoinEvent $event){
     $player = $event->getPlayer();
     $player->setJoinMessage(Main::getPrefix() . TF::BLUE . "Hi" . TF::RESET . $player->getName() . " " . TF::BLUE . "Welcome in our server");
   }
   
-  public function onDeath(PlayerDeathEvent $event): void{
+  public function onDeath(PlayerDeathEvent $event){
     $player = $event->getPlayer();
     $player->setDeathMessage(Main::getPrefix() . TF::WHITE . "Ooops" . TF::RESET . $player->getName() . " " . TF::BLUE . "Got rekt!");
   }
   
-  public function onQuit(PlayerQuitEvent $event): void{
+  public function onQuit(PlayerQuitEvent $event){
     $player = $event->getPlayer();
     $player->setQuitMessage(Main::getPrefix() . TF::BLUE . "Oof sadly" . TF::RESET . $player->getName() . " " . TF::BLUE . "Has left the server");
   }

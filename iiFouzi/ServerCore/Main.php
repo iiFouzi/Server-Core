@@ -1,35 +1,52 @@
 <?php
 
-namespace Inaayat\iiFouzi;
+namespace iiFouzi\ServerCore;
   
 use pocketmine\Server;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
-
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\ConsoleCommandSender;
-
+use pocketmine\event\Listener;
+use pocketmine\event\PlayerJoinEvent;
+use pocmetmine\event\PlayerQuitEvent;
+use pocketmine\event\PlayerDeathEvent;
 use pocketmine\utils\TextFormat as TF;
 //config coming soon//
 use pocketmine\utils\Config;
 //config coming soon//
 
-class Main extends PluginBase {
+class Main extends PluginBase implements Listener {
   
-  const PREFIX = "§8[§bEssentials§8] ";
+  const PREFIX = "§8[§bServerCore§8] ";
   
   public function onEnable(): void{
-    $this->getLogger()->info(TF::GREEN . "InaaFouziEssential succesfully enable");
+    $this->getLogger()->info(TF::GREEN . "ServerCore has benn succesfully enabled");
   }
   
   public function onDisable(): void{
-    $this->getLogger()->info(TF::RED . "InaaFouziEssential plugin has been disabled");
+    $this->getLogger()->info(TF::RED . "ServerCore has been succesfully disabled");
   }
   
   public static function getPrefix() : string
   {
     return self::PREFIX;
+  }
+  
+  public function onJoin(PlayerJoinEvent $event): void{
+    $player = $event->getPlayer();
+    $player->setJoinMessage(Main::getPrefix() . TF::BLUE . "Hi" . TF::RESET . $player->getName() . " " . TF::BLUE . "Welcome in our server");
+  }
+  
+  public function onDeath(PlayerDeathEvent $event): void{
+    $player = $event->getPlayer();
+    $player->setDeathMessage(Main::getPrefix() . TF::WHITE . "Ooops" . TF::RESET . $player->getName() . " " . TF::BLUE . "Got rekt!");
+  }
+  
+  public function onQuit(PlayerQuitEvent $event): void{
+    $player = $event->getPlayer();
+    $player->setQuitMessage(Main::getPrefix() . TF::BLUE . "Oof sadly" . TF::RESET . $player->getName() . " " . TF::BLUE . "Has left the server");
   }
   
   public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool{

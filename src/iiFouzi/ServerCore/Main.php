@@ -1,6 +1,6 @@
 <?php
 
-namespace Inaayat\iiFouzi;
+namespace iiFouzi\ServerCore;
   
 use pocketmine\Server;
 use pocketmine\Player;
@@ -17,14 +17,14 @@ use pocketmine\utils\Config;
 
 class Main extends PluginBase {
   
-  const PREFIX = "§8[§bEssentials§8] ";
+  const PREFIX = "§8[§bServer§8] ";
   
   public function onEnable(): void{
-    $this->getLogger()->info(TF::GREEN . "InaaFouziEssential succesfully enable");
+    $this->getLogger()->info(TF::GREEN . "Server Core plugin has succesfully enabled");
   }
   
   public function onDisable(): void{
-    $this->getLogger()->info(TF::RED . "InaaFouziEssential plugin has been disabled");
+    $this->getLogger()->info(TF::RED . "Server Core plugin has succesfully disabled");
   }
   
   public static function getPrefix() : string

@@ -5,7 +5,10 @@ namespace iiFouzi\ServerCore;
 use pocketmine\Server;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
-
+use pocketmine\event\Listener;
+use pocketmine\event\PlayerJoinEvent; //it will be added soon!
+use pocketmine\event\PlayerDeathEvent; //it will be added soon!
+use pocketmine\event\PlayerQuitEvent; //it will be added soon!
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\ConsoleCommandSender;
@@ -15,7 +18,7 @@ use pocketmine\utils\TextFormat as TF;
 use pocketmine\utils\Config;
 //config coming soon//
 
-class Main extends PluginBase {
+class Main extends PluginBase implements Listener {
   
   const PREFIX = "§8[§bServer§8] ";
   

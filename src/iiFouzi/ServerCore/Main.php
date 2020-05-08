@@ -38,7 +38,7 @@ class Main extends PluginBase implements Listener {
     
     $player = $event->getPlayer();
     
-    $player->setJoinMessage();
+    $player->setJoinMessage(TF::BOLD . TF::YELLOW . $player->getName(); . TF::GRAY . "has left the server,Bye!");
     
   }
   
@@ -46,7 +46,7 @@ class Main extends PluginBase implements Listener {
     
     $player = $event->getPlayer();
     
-    $player->setQuitMessage();
+    $player->setQuitMessage(TF::BOLD . TF::YELLOW . $player->getName(); . TF::GRAY . "has joined the server,Welcome!");
     
   }
   

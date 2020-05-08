@@ -38,11 +38,15 @@ class Main extends PluginBase implements Listener {
     
     $player = $event->getPlayer();
     
+    $player->setJoinMessage();
+    
   }
   
   public function onQuit(PlayerQuitEvent $event){
     
     $player = $event->getPlayer();
+    
+    $player->setQuitMessage();
     
   }
   

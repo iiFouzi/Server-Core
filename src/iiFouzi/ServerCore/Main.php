@@ -7,7 +7,6 @@ use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\PlayerJoinEvent; //it will be added soon!
-use pocketmine\event\PlayerDeathEvent; //it will be added soon!
 use pocketmine\event\PlayerQuitEvent; //it will be added soon!
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -33,6 +32,18 @@ class Main extends PluginBase implements Listener {
   public static function getPrefix() : string
   {
     return self::PREFIX;
+  }
+  
+  public function onJoin(PlayerJoinEvent $event){
+    
+    $player = $event->getPlayer();
+    
+  }
+  
+  public function onQuit(PlayerQuitEvent $event){
+    
+    $player = $event->getPlayer();
+    
   }
   
   public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool{

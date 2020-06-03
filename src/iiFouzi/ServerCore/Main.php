@@ -59,6 +59,7 @@ class Main extends PluginBase implements Listener {
     switch($command){
 
       case "heal":
+      case "h":
         if($sender->getHealth() == $sender->getMaxHealth()){
           
           $sender->sendMessage(Main::getPrefix() . "You're health is already max");
@@ -70,6 +71,7 @@ class Main extends PluginBase implements Listener {
         break;
       
       case "feed":
+      case "eat":
         if($sender->getFood() == 20){
           $sender->sendMessage(Main::getPrefix() . "You already have maxed food");
           return false;
@@ -79,6 +81,7 @@ class Main extends PluginBase implements Listener {
         break;
       
       case "fly":
+      case "flight"
         if($sender->getAllowFlight()){
           $sender->setAllowFlight(false);
           $sender->sendMessage(Main::getPrefix() . "You have disabled your fly mode");

@@ -97,6 +97,7 @@ class Main extends PluginBase implements Listener {
             break;
         
         case "ping":
+        case "ms":
                 $sender->sendMessage(Main::getPrefix() . TextFormat::YELLOW . "Your ping is " . $sender->getPing() . " ms");
             }
     }

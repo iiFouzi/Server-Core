@@ -1,35 +1,5 @@
 name: iiFouzi
 version: 0.0.1
-main: iiFouzi\ServerCore\Main
+main: iiFouzi\ServerCore\Loader
 api: [3.0.0, 4.0.0]
-author: iiFouzi, JamesCOMMAND
-
-
-commands:
-  heal:
-    description: "Heals you"
-    permission-message: "You do not have permission to use this command!"
-  feed:
-    description: "feed you"
-    permission-message: "You do not have permission to use this command!"
-  fly:
-    description: "enable fly or disable"
-    permission-message: "You do not have permission to use this command!"
-  clearinv:
-    description: "clears your inventory"
-    permission-message: "You do not have permission to use this command!"
-  ping:
-    description: "Checks your ping"
-    permission-message: "You do not have permission to use this command!"
-
-permissions:
-  servercore.heal:
-    default: op
-  servercore.feed:
-    default: op
-  servercore.fly:
-    default: op
-  servercore.clearinv:
-    default: op
-  servercore.ping:
-    default: op
+author: iiFouzi

@@ -1,5 +1,5 @@
 name: iiFouzi
 version: 0.0.1
-main: iiFouzi\ServerCore\Loader
+main: iifouzi\servercore\Loader
 api: [3.0.0, 4.0.0]
 author: iiFouzi

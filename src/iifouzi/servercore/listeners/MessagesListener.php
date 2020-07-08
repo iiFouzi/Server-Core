@@ -1,13 +1,13 @@
 <?php
 
-namespace iiFouzi\ServerCore\Listeners;
+namespace iifouzi\servercore\listeners;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\utils\TextFormat as TF;
-use iiFouzi\ServerCore\Loader;
+use iifouzi\servercore\Loader;
 
 class EventListener implements Listener 
 {

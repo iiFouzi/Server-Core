@@ -1,6 +1,6 @@
 <?php
 
-namespace iiFouzi\ServerCore\Commands;
+namespace iifouzi\servercore\commands;
 
 class FixCommand extends PluginCommand
 {

@@ -124,6 +124,9 @@ class EventListener implements Listener
         case 0:
           $player->getServer()->dispacthCommand($player, "transferserver server_ip:port");
         break;
+        case 1:
+          
+        break;
         
       }
       
@@ -131,6 +134,7 @@ class EventListener implements Listener
     $form->setTitle();
     $form->setContent();
     $form->addButton("Server Name");
+    $form->addButton("§lExit");
     $form->sendToPlayer($player);
   }
   
@@ -150,7 +154,7 @@ class EventListener implements Listener
     });
     $form->setTitle("Server Informations");
     $form->setContent("Put Anything You want");
-    $form->addButton("Exit");
+    $form->addButton("§lExit");
     $form->sendToPlayer($player);
   }
   
@@ -170,7 +174,7 @@ class EventListener implements Listener
     });
     $form->setTitle("User Informations");
     $form->setContent("§l§eName: §f" . $player->getName() . "\n \n§ePing: §f" . $player->getPing() . "ms\n \n§eFirst Play: §f" . $player->getFirstPlayed() . "\n \n§eLast Play: §f" . $player->getLastPlay());
-    $form->addButton("Exit");
+    $form->addButton("§lExit");
     $form->sendToPlayer($player);
   }
 }

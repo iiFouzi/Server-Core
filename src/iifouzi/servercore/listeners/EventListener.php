@@ -12,6 +12,7 @@ use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\Player\PlayerDropItemEvent;
 use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\playerPlayerExhaustEvent;
 use jojoe77777\FormAPI\SimpleForm;
 use jojoe77777\FormAPI\CustomForm;
 use jojoe77777\FormAPI\ModalForm;
@@ -86,26 +87,90 @@ class EventListener implements Listener
     }
   }
   
-  // when player deaths.
-  public function onDeath(PlayerDeathEvent $event)
+  // no hunger
+  public function onHunger(PlayerExhaustEvent $event)
   {
-    $player = $event->getPlayer();
-    // define the player variable.
-    
-    $player->teleport($player->getLevel()->getServer()->getDefaultLevel()->getSpawnLocation());
-    // teleport him to the default world
-    
-    $this->onJDItems($player);
+    $event->setCancelled(true);
   }
   
   public function onJDItems(Player $player)
   {
-    //TODO add items to this function.
+    //TODO add items and stuff to this function.
   }
   
   public function onInteract(PlayerInteractEvent $event)
   {
-    //TODO complete this.
+    $player = $event->getPlayer();
+    $item = $player->getInventory()->getItemInHand();
+    
+    if ($item->getId() == Item::COMPASS){
+      $this->openCompassForm($player);
+    }
+    if ($item->getId() == Item::BOOK){
+      $this->openBookForm($player);
+    }
+    if ($item->getId() == Item::STICK){
+      $this->openStickForm($player);
+    }
   }
   
+  public function openCompassForm(){
+    $form = new SimpleForm(function (Player $player, $data){
+      if ($data === null){
+        return;
+      }
+      switch ($data){
+        
+        case 0:
+          $player->getServer()->dispacthCommand($player, "transferserver server_ip:port");
+        break;
+        
+      }
+      
+    });
+    $form->setTitle();
+    $form->setContent();
+    $form->addButton("Server Name");
+    $form->sendToPlayer($player);
+  }
+  
+  public function openBookForm(){
+    $form = new SimpleForm(function (Player $player, $data){
+      
+      if ($data === null){
+        return;
+      }
+      
+      switch($data){
+        case 0:
+          
+        break;
+      }
+      
+    });
+    $form->setTitle("Server Informations");
+    $form->setContent("Put Anything You want");
+    $form->addButton("Exit");
+    $form->sendToPlayer($player);
+  }
+  
+  public function openStickForm(){
+    $form = new SimpleForm(function (Player $player){
+      
+      if ($data === null){
+        return;
+      }
+      
+      switch($data){
+        case 0:
+          
+        break;
+      }
+      
+    });
+    $form->setTitle("User Informations");
+    $form->setContent("§l§eName: §f" . $player->getName() . "\n \n§ePing: §f" . $player->getPing() . "ms\n \n§eFirst Play: §f" . $player->getFirstPlayed() . "\n \n§eLast Play: §f" . $player->getLastPlay());
+    $form->addButton("Exit");
+    $form->sendToPlayer($player);
+  }
 }

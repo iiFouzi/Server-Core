@@ -1,8 +1,8 @@
 <?php
 
-namespace iiFouzi\ServerCore;
+namespace iiFouzi\ServerCore\Commands;
 
-class Clearinv extends PluginCommand
+class ClearinvCommand extends PluginCommand
 {
   
 }

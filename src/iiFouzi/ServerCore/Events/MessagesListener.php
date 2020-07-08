@@ -12,19 +12,27 @@ use iiFouzi\ServerCore\Loader;
 class EventListener implements Listener 
 {
   
-  public function onJoin(PlayerJoinEvent $event){
+  public function __construct(Loader $main)
+  {
+    $this->main = $main;
+  }
+  
+  public function onJoin(PlayerJoinEvent $event)
+  {
     $p = $event->getPlayer();
     $n = $p->getName();
     $p->setJoinMessage(TF::GAY . "[" . TF::GREEN . "+" . TF::GRAY . "]" . TF::GREEN . $n);
   }
   
-  public function onQuit(PlayerQuitEvent $event){
+  public function onQuit(PlayerQuitEvent $event)
+  {
     $p = $event->getPlayer();
     $n = $p->getName();
     $p->setQuitMessage(TF::GAY . "[" . TF::RED . "-" . TF::GRAY . "]" . TF::RED . $n);
   }
   
-  public function onDeath(PlayerDeathEvent $event){
+  public function onDeath(PlayerDeathEvent $event)
+  {
     $e = $event->getEntity();
     if($e->getLastCause() === EntityDamageByEntityEvent){
       $d = $p->getDamager();

@@ -5,6 +5,7 @@ namespace iifouzi\servercore\commands;
 use pocketmine\command\PluginCommand;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat as C;
+use iifouzi\servercore\Loader;
 
 class HealCommand extends PluginCommand
 {
